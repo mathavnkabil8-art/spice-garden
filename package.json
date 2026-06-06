@@ -1,8 +1,7 @@
 {
-    "name": "spice-garden-ordering-system",
-    "version": "1.0.0",
-    "description": "Spice Garden Restaurant Ordering Web App",
-    "dependencies": {
-        "nodemailer": "^6.9.3"
-    }
+  "name": "spice-garden-ordering-system",
+  "version": "1.0.0",
+  "dependencies": {
+    "nodemailer": "^6.9.3"
+  }
 }
