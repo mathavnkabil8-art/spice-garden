@@ -2,22 +2,22 @@
     "version": 2,
     "builds": [
         {
-            "src": "api/**/*.js",
+            "src": "api/order.js",
             "use": "@vercel/node"
         },
         {
-            "src": "public/**",
+            "src": "public/index.html",
             "use": "@vercel/static"
         }
     ],
     "routes": [
         {
-            "src": "/api/(.*)",
-            "dest": "/api/$1"
+            "src": "/api/order",
+            "dest": "/api/order.js"
         },
         {
             "src": "/(.*)",
-            "dest": "/public/$1"
+            "dest": "/public/index.html"
         }
     ]
 }
