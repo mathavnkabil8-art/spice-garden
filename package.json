@@ -1,5 +1,5 @@
 {
-  "name": "spice-garden-ordering-system",
+  "name": "spice-garden",
   "version": "1.0.0",
   "dependencies": {
     "nodemailer": "^6.9.3"
