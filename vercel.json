@@ -1,23 +1,7 @@
 {
-    "version": 2,
-    "builds": [
-        {
-            "src": "api/order.js",
-            "use": "@vercel/node"
-        },
-        {
-            "src": "public/index.html",
-            "use": "@vercel/static"
-        }
-    ],
-    "routes": [
-        {
-            "src": "/api/order",
-            "dest": "/api/order.js"
-        },
-        {
-            "src": "/(.*)",
-            "dest": "/public/index.html"
-        }
-    ]
+  "outputDirectory": "public",
+  "rewrites": [
+    { "source": "/api/order", "destination": "/api/order.js" },
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
 }
