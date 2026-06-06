@@ -1,6 +1,6 @@
 const nodemailer = require('nodemailer');
 
-export default async function handler(req, res) {
+module.exports = async (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
@@ -19,7 +19,7 @@ export default async function handler(req, res) {
   });
 
   const itemDetails = order.items
-    .map(i => `- ${i.name} (x${i.qty}): ₹${i.total}`)
+    .map(i => `- ${i.name} (x${i.qty}): Rs.${i.total}`)
     .join('\n');
 
   const emailBody = `
@@ -34,7 +34,7 @@ Notes: ${order.notes || 'N/A'}
 ITEMS ORDERED:
 ${itemDetails}
 
-Total Amount: ₹${order.grand}
+Total Amount: Rs.${order.grand}
 Time: ${order.timestamp}
   `;
 
@@ -50,4 +50,4 @@ Time: ${order.timestamp}
     console.error('Email Error:', error);
     res.status(500).json({ success: false, message: error.message });
   }
-}
+};
