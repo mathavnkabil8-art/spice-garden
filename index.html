@@ -820,17 +820,17 @@ async function placeOrder() {
   };
 
   try {
-    const res = await fetch('http://localhost:3000/api/order', {
+    const res = await fetch('/api/order', {
       method:'POST', headers:{'Content-Type':'application/json'},
       body: JSON.stringify(orderData)
     });
     const data = await res.json();
     if (res.ok && data.success) { showSuccess(orderId, email); }
     else { throw new Error(data.message||'Failed'); }
-  } catch(err) {
-    // In a real local setup without the backend running, this error block will trigger.
-    // For demo purposes, we call success to show what happens.
-    showSuccess(orderId, email, true);
+  } } catch(err) {
+    btn.disabled = false;
+    btnTxt.textContent = 'Place Order →';
+    alert('Order failed: ' + err.message);
   } finally {
     btn.disabled = false;
     btnTxt.textContent = 'Place Order →';
