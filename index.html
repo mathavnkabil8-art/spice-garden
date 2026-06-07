@@ -843,10 +843,6 @@ async function placeOrder() {
           btn.disabled = false;
           btnTxt.textContent = 'Place Order →';
         }
-  } finally {
-    btn.disabled = false;
-    btnTxt.textContent = 'Place Order →';
-  }
 }
 
 function showSuccess(orderId, email, demo=false) {
