@@ -839,13 +839,8 @@ async function placeOrder() {
 
 function showSuccess(orderId, email, demo=false) {
   closeCheckout();
-  document.getElementById('success-msg').textContent = demo
-    ? `Order received! (Start the backend server to send real Gmail emails to ${email})`
-    : `Confirmation emails sent to ${email} and the restaurant. Estimated delivery: 30–45 min!`;
-  document.getElementById('success-oid').textContent = `Order ID: ${orderId}`;
-  document.getElementById('success-ov').classList.add('open');
-}
-
+  document.getElementById('success-msg').textContent = 
+    `Confirmation emails sent to ${email} and the restaurant. Estimated delivery: 30–45 min!`;
 function resetOrder() {
   cart = {};
   updateCartUI();
