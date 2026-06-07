@@ -827,7 +827,7 @@ async function placeOrder() {
     const data = await res.json();
     if (res.ok && data.success) { showSuccess(orderId, email); }
     else { throw new Error(data.message||'Failed'); }
-  } } try {
+   } try {
           const res = await fetch('/api/order', {
             method:'POST', headers:{'Content-Type':'application/json'},
             body: JSON.stringify(orderData)
