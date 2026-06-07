@@ -827,10 +827,22 @@ async function placeOrder() {
     const data = await res.json();
     if (res.ok && data.success) { showSuccess(orderId, email); }
     else { throw new Error(data.message||'Failed'); }
-  } } catch(err) {
-    btn.disabled = false;
-    btnTxt.textContent = 'Place Order →';
-    alert('Order failed: ' + err.message);
+  } } try {
+          const res = await fetch('/api/order', {
+            method:'POST', headers:{'Content-Type':'application/json'},
+            body: JSON.stringify(orderData)
+          });
+          const data = await res.json();
+          if (res.ok && data.success) { showSuccess(orderId, email); }
+          else { throw new Error(data.message||'Failed'); }
+        } catch(err) {
+          btn.disabled = false;
+          btnTxt.textContent = 'Place Order →';
+          alert('Order failed: ' + err.message);
+        } finally {
+          btn.disabled = false;
+          btnTxt.textContent = 'Place Order →';
+        }
   } finally {
     btn.disabled = false;
     btnTxt.textContent = 'Place Order →';
