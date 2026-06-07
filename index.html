@@ -844,11 +844,11 @@ async function placeOrder() {
           btnTxt.textContent = 'Place Order →';
         }
 }
-
-function showSuccess(orderId, email, demo=false) {
+function showSuccess(orderId, email) {
   closeCheckout();
   document.getElementById('success-msg').textContent = 
     `Confirmation emails sent to ${email} and the restaurant. Estimated delivery: 30–45 min!`;
+}
 function resetOrder() {
   cart = {};
   updateCartUI();
